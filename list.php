@@ -3,7 +3,7 @@ $date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
 $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
 ?>
 
-	 <!-- Masthead-->
+	 <!-- Mastheader-->
         <header class="masthead">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
