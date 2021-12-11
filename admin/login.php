@@ -16,9 +16,7 @@
    if($conn->connect_error){
 	 die("Connection failed: " . $conn->connect_error."<br>");
    }
-   else{
-	 echo "Succeful Connection!<br>";
-   }
+
  ?>
 <?php 
 session_start();
