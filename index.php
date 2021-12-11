@@ -1,6 +1,6 @@
 <?php
     ob_start();
-    $con = new mysqli("localhost","root",'keith7053$me$',"db_connect");
+    $con = new mysqli("localhost","root",'Adbr4461',"db_connect");
       //Check if Connection is successful
       if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error."<br>");
