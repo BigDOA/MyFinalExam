@@ -1,6 +1,6 @@
 <?php
 	ob_start();
-    $con = new mysqli("localhost","root","","db_connect");
+    $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
       //Check if Connection is successful
       if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error."<br>");
@@ -8,6 +8,7 @@
       else{
         echo "Succeful Connection!<br>";
       }
+    ob_end_clean();
     ob_end_clean();
 $qry = $conn->query("SELECT * from system_settings limit 1");
 if($qry->num_rows > 0){

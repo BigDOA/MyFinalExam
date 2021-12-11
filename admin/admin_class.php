@@ -5,7 +5,17 @@ Class Action {
 
 	public function __construct() {
 		ob_start();
-   	include 'db_connect.php';
+   	ob_start();
+    $conn = new mysqli("localhost","root",'Adbr4461',"db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
+    session_start();
     
     $this->db = $conn;
 	}

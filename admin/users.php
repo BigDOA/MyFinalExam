@@ -24,7 +24,16 @@
 			</thead>
 			<tbody>
 				<?php
- 					include 'db_connect.php';
+ 					ob_start();
+					 $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+					   //Check if Connection is successful
+					   if($conn->connect_error){
+						 die("Connection failed: " . $conn->connect_error."<br>");
+					   }
+					   else{
+						 echo "Succeful Connection!<br>";
+					   }
+					 ob_end_clean();
  					$users = $conn->query("SELECT * FROM users order by name asc");
  					$i = 1;
  					while($row= $users->fetch_assoc()):

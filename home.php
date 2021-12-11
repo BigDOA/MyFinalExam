@@ -38,7 +38,16 @@
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                 	<?php 
-                	include'admin/db_connect.php';
+                	ob_start();
+					$conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+					  //Check if Connection is successful
+					  if($conn->connect_error){
+						die("Connection failed: " . $conn->connect_error."<br>");
+					  }
+					  else{
+						echo "Succeful Connection!<br>";
+					  }
+					ob_end_clean();
                 	$qry = $conn->query("SELECT * FROM  room_categories order by rand() ");
                 	while($row = $qry->fetch_assoc()):
                 	?>
