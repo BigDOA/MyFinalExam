@@ -1,4 +1,15 @@
-<?php include('db_connect.php'); 
+<?php 
+	ob_start();
+    $con = new mysqli("localhost","root","","db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
+	
 $cat = $conn->query("SELECT * FROM room_categories");
 $cat_arr = array();
 while($row = $cat->fetch_assoc()){

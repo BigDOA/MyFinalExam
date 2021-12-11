@@ -1,6 +1,16 @@
 <?php
 
-include ('db.php');
+ob_start();
+$con = new mysqli("localhost","root","","hotel_db");
+  //Check if Connection is successful
+  if($conn->connect_error){
+	die("Connection failed: " . $conn->connect_error."<br>");
+  }
+  else{
+	echo "Succeful Connection!<br>";
+  }
+ob_end_clean();
+
 $eid = $_GET['eid'];
 $approval ="Allowed";
 $napproval="Not Allowed";

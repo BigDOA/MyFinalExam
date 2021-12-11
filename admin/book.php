@@ -1,5 +1,15 @@
 <?php 
-include('db_connect.php');
+	ob_start();
+    $con = new mysqli("localhost","root","","db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
+
 	$rid = '';
 
 $calc_days = abs(strtotime($_GET['out']) - strtotime($_GET['in'])) ; 

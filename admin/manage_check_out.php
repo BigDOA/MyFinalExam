@@ -1,5 +1,14 @@
 <?php 
-include('db_connect.php');
+	ob_start();
+    $con = new mysqli("localhost","root","","db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
 if($_GET['id']){
 	$id = $_GET['id'];
 	$qry = $conn->query("SELECT * FROM checked where id =".$id);

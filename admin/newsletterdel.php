@@ -1,6 +1,15 @@
 <?php
 
-include ('db.php');
+	ob_start();
+    $con = new mysqli("localhost","root","","hotel_db");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
 
 $id=$_GET['eid'];
 if($id=="")

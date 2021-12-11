@@ -1,14 +1,24 @@
 <?php
+    ob_start();
+    $con = new mysqli("localhost","root","","db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
     session_start();
     include('header.php');
-    include('admin/db_connect.php');
+
 
 	$query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
 	foreach ($query as $key => $value) {
 		if(!is_numeric($key))
 			$_SESSION['setting_'.$key] = $value;
 	}
-    ?>
+?>
     
 
 <!DOCTYPE html>
@@ -51,7 +61,6 @@
         $page = isset($_GET['page']) ?$_GET['page'] : "home";
         include $page.'.php';
         ?>
-       
 
 <div class="modal fade" id="confirm_modal" role='dialog'>
     <div class="modal-dialog modal-md" role="document">
@@ -137,5 +146,5 @@
     </body>
 
     <?php $conn->close() ?>
-
+  </div>
 </html>

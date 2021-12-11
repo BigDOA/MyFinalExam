@@ -9,7 +9,18 @@
  	
 
 <?php include('./header.php'); ?>
-<?php include('./db_connect.php'); ?>
+<?php 
+	ob_start();
+    $con = new mysqli("localhost","root","","db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
+ ?>
 <?php 
 session_start();
 if(isset($_SESSION['login_id']))

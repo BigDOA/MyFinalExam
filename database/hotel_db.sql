@@ -37,7 +37,7 @@ CREATE TABLE `checked` (
   `date_out` datetime NOT NULL,
   `booked_cid` int(30) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = pending, 1=checked in , 2 = checked out',
-  `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date_updated` datetime 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
