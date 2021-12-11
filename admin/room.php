@@ -125,7 +125,15 @@ if(!isset($_SESSION["user"]))
 							 <input type="submit" name="add" value="Add New" class="btn btn-primary"> 
 							</form>
 							<?php
-							 include('db.php');
+							 ob_start();
+                             $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+                               //Check if Connection is successful
+                               if($conn->connect_error){
+                                 die("Connection failed: " . $conn->connect_error."<br>");
+                               }
+                               else{
+                                 echo "Succeful Connection!<br>";
+                               }
 							 if(isset($_POST['add']))
 							 {
 										$room = $_POST['troom'];

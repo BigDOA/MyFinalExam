@@ -127,7 +127,15 @@ if(!isset($_SESSION["user"]))
                                     <tbody>
                                         
 									<?php
-										include ('db.php');
+										ob_start();
+                                        $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+                                          //Check if Connection is successful
+                                          if($conn->connect_error){
+                                            die("Connection failed: " . $conn->connect_error."<br>");
+                                          }
+                                          else{
+                                            echo "Succeful Connection!<br>";
+                                          }
 										$sql="select * from payment";
 										$re = mysqli_query($con,$sql);
 										while($row = mysqli_fetch_array($re))

@@ -161,7 +161,15 @@ tr:hover .cut { opacity: 1; }
 	
 	<?php
 	ob_start();	
-	include ('db.php');
+	ob_start();
+    $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
 
 	$pid = $_GET['sid'];
 	
