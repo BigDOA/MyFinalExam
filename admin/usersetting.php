@@ -86,7 +86,15 @@ ob_start();
                  
                                  
             <?php
-						include ('db.php');
+                        ob_start();
+                     $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
+                       //Check if Connection is successful
+                       if($conn->connect_error){
+                         die("Connection failed: " . $conn->connect_error."<br>");
+                       }
+                       else{
+                         echo "Succeful Connection!<br>";
+                       }
 						$sql = "SELECT * FROM `login`";
 						$re = mysqli_query($con,$sql)
 				?>
