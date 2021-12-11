@@ -14,7 +14,17 @@ if(!isset($_SESSION["user"]))
 		}
 		else {
 				$curdate=date("Y/m/d");
-				include ('db.php');
+				ob_start();
+    $conn = new mysqli("localhost","root",'Adbr4461',"db_connect");
+      //Check if Connection is successful
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error."<br>");
+      }
+      else{
+        echo "Succeful Connection!<br>";
+      }
+    ob_end_clean();
+	
 				$id = $_GET['rid'];
 				
 				

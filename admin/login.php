@@ -11,7 +11,7 @@
 <?php include('./header.php'); ?>
 <?php 
 	ob_start();
-    $con = new mysqli("localhost","root","","hotel_db");
+    $con = new mysqli("localhost","root","","db_connect");
       //Check if Connection is successful
       if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error."<br>");
