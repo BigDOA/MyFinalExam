@@ -4,7 +4,6 @@ Class Action {
 	private $db;
 
 	public function __construct() {
-		ob_start();
    	ob_start();
     $conn = new mysqli("localhost","root",'Adbr4461',"hotel_db");
       //Check if Connection is successful
